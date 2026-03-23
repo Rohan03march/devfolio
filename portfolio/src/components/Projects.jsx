@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight, Shield } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Shield, Apple, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import iskconImg from '../assets/projectsImages/ISKCONpilgrimage.jpg';
@@ -13,6 +13,8 @@ import ironrootImg from '../assets/projectsImages/ironnrootfitness.png';
 import makeawishImg from '../assets/projectsImages/makeawish.png';
 import sourceoneImg from '../assets/projectsImages/sourceone.png';
 import amsImg from '../assets/projectsImages/ams.png';
+import appStoreIcon from '../assets/appstore.png';
+import playStoreIcon from '../assets/playstore.png';
 
 const projects = [
   {
@@ -23,7 +25,8 @@ const projects = [
     image: iskconImg,
     id: 'BP-08',
     stability: '99.4%',
-    live: 'https://play.google.com/store/search?q=iskcon+pilgrimage&c=apps&hl=en_IN'
+    playStore: 'https://play.google.com/store/search?q=iskcon+pilgrimage&c=apps&hl=en_IN',
+    appStore: 'https://apps.apple.com/in/app/iskcon-pilgrimage/id6503705676'
   },
   {
     title: 'Brihat Mridanga',
@@ -33,7 +36,8 @@ const projects = [
     image: bookImg,
     id: 'BP-08',
     stability: '99.4%',
-    live: 'https://play.google.com/store/apps/details?id=org.iskblr.brihat.mridanga&hl=en_IN'
+    playStore: 'https://play.google.com/store/apps/details?id=org.iskblr.brihat.mridanga&hl=en_IN',
+    appStore: 'https://apps.apple.com/in/app/brihat-mridanga/id6738488694'
   },
   {
     title: 'Expense Splitter',
@@ -43,7 +47,7 @@ const projects = [
     image: expenseSplitterImg,
     id: 'BP-08',
     stability: '99.4%',
-    github: 'https://github.com/Rohan03march/expenseSpitter'
+    github: 'https://github.com/Rohan03march/expenseSpitter',
   },
   {
     title: 'HYPEKART',
@@ -201,12 +205,52 @@ const ProjectCard = ({ project, index }) => (
             rel="noopener noreferrer"
             className="hologram-card"
             style={{
-              padding: '0.5rem',
+              padding: '0.4rem',
               background: 'rgba(2, 2, 4, 0.6)',
               border: '1px solid rgba(0, 245, 255, 0.3)',
             }}
           >
-            <Github size={16} style={{ color: '#00f5ff' }} />
+            <Github size={14} style={{ color: '#00f5ff' }} />
+          </a>
+        )}
+
+        {project.playStore && (
+          <a
+            href={project.playStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hologram-card"
+            title="Google Play Store"
+            style={{
+              padding: '0.4rem',
+              background: 'rgba(2, 2, 4, 0.6)',
+              border: '1px solid rgba(0, 245, 255, 0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <img src={playStoreIcon} alt="Play Store" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+          </a>
+        )}
+
+        {project.appStore && (
+          <a
+            href={project.appStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hologram-card"
+            title="Apple App Store"
+            style={{
+              padding: '0.4rem',
+              background: 'rgba(2, 2, 4, 0.6)',
+              border: '1px solid rgba(0, 245, 255, 0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <img src={appStoreIcon} alt="App Store" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
           </a>
         )}
 
@@ -217,12 +261,12 @@ const ProjectCard = ({ project, index }) => (
             rel="noopener noreferrer"
             className="hologram-card"
             style={{
-              padding: '0.5rem',
+              padding: '0.4rem',
               background: 'rgba(2, 2, 4, 0.6)',
               border: '1px solid rgba(0, 245, 255, 0.3)',
             }}
           >
-            <ExternalLink size={16} style={{ color: '#00f5ff' }} />
+            <ExternalLink size={14} style={{ color: '#00f5ff' }} />
           </a>
         )}
       </div>
