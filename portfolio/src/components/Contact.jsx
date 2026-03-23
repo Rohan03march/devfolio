@@ -30,9 +30,9 @@ const Contact = () => {
     setStatus('sending');
 
     // Use environment variables for EmailJS IDs
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_ID;
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {
@@ -101,11 +101,11 @@ const Contact = () => {
                 <Mail size={16} /> rohanp.dev@gmail.com
               </a>
 
-              <a 
-                href={resumeFile} 
-                target="_blank" 
+              <a
+                href={resumeFile}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="mono" 
+                className="mono"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -182,12 +182,12 @@ const Contact = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             <label className="mono" style={{ fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', color: '#00f5ff' }}>SENDER_IDENTITY</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               name="user_name"
               value={formData.user_name}
               onChange={handleChange}
-              placeholder="USER_NAME" 
+              placeholder="USER_NAME"
               required
               style={{
                 padding: '1rem',
@@ -197,18 +197,18 @@ const Contact = () => {
                 fontSize: '1rem',
                 outline: 'none',
                 fontFamily: 'monospace'
-              }} 
+              }}
             />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             <label className="mono" style={{ fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', color: '#00f5ff' }}>COORDINATE_EMAIL</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="user_email"
               value={formData.user_email}
               onChange={handleChange}
-              placeholder="IDENTITY@HOST.EXT" 
+              placeholder="IDENTITY@HOST.EXT"
               required
               style={{
                 padding: '1rem',
@@ -218,18 +218,18 @@ const Contact = () => {
                 fontSize: '1rem',
                 outline: 'none',
                 fontFamily: 'monospace'
-              }} 
+              }}
             />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             <label className="mono" style={{ fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase', color: '#00f5ff' }}>DATA_PAYLOAD</label>
-            <textarea 
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Describe mission objectives..." 
-              rows={4} 
+              placeholder="Describe mission objectives..."
+              rows={4}
               required
               style={{
                 padding: '1rem',
@@ -240,14 +240,14 @@ const Contact = () => {
                 outline: 'none',
                 fontFamily: 'monospace',
                 resize: 'none'
-              }} 
+              }}
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={status === 'sending'}
-            className="hologram-card" 
+            className="hologram-card"
             style={{
               padding: '1.2rem',
               background: status === 'sending' ? 'rgba(0, 245, 255, 0.05)' : 'rgba(0, 245, 255, 0.1)',
