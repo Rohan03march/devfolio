@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, Send, MapPin, ArrowUpRight, Activity, Shield, Wifi, Globe } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, Send, MapPin, ArrowUpRight, Activity, Shield, Wifi, Globe, FileText } from 'lucide-react';
+import resumeFile from "../assets/Rohan's Resume.pdf";
 
 const Contact = () => {
   const [sigStr, setSigStr] = useState(98.2);
@@ -48,18 +49,57 @@ const Contact = () => {
               Sub-24h response latency guaranteed.
             </p>
 
-            <a href="mailto:rohanp.dev@gmail.com" className="mono" style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-              fontSize: '1rem',
-              color: '#00f5ff',
-              fontWeight: 800,
-              textDecoration: 'none',
-              filter: 'drop-shadow(0 0 5px rgba(0, 245, 255, 0.4))'
-            }}>
-              rohanp.dev@gmail.com <ArrowUpRight size={18} />
-            </a>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', alignItems: 'center' }}>
+              <a href="mailto:rohanp.dev@gmail.com" className="mono" style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.8rem',
+                fontSize: '0.9rem',
+                color: '#00f5ff',
+                fontWeight: 800,
+                textDecoration: 'none',
+                filter: 'drop-shadow(0 0 5px rgba(0, 245, 255, 0.4))',
+                padding: '0.8rem 1.2rem',
+                background: 'rgba(0, 245, 255, 0.05)',
+                border: '1px solid rgba(0, 245, 255, 0.1)',
+                borderRadius: '4px'
+              }}>
+                <Mail size={16} /> rohanp.dev@gmail.com
+              </a>
+
+              <a 
+                href={resumeFile} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="mono" 
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.8rem',
+                  fontSize: '0.9rem',
+                  color: '#fff',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  padding: '0.8rem 1.2rem',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '4px',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(0, 245, 255, 0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 245, 255, 0.5)';
+                  e.currentTarget.style.color = '#00f5ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.color = '#fff';
+                }}
+              >
+                <FileText size={16} /> VIEW_RESUME <ArrowUpRight size={14} />
+              </a>
+            </div>
           </div>
 
           <div style={{ display: 'flex', gap: '1.5rem' }}>
