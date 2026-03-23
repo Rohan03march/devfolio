@@ -85,7 +85,17 @@ const ExperienceNode = ({ exp, index }) => (
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '1.5rem' }}>
         <div style={{ minWidth: '200px', flex: 1 }}>
           <span className="mono" style={{ fontSize: '0.65rem', color: '#00f5ff', opacity: 0.8, letterSpacing: '0.2em' }}>{exp.period} // {exp.id}</span>
-          <h3 className="mono" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.6rem)', marginTop: '0.4rem', fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>{exp.role}</h3>
+          <h3 className="mono" style={{ 
+            fontSize: 'clamp(1.1rem, 3vw, 1.6rem)', 
+            marginTop: '0.4rem', 
+            fontWeight: 800, 
+            color: '#fff', 
+            lineHeight: 1.2,
+            wordBreak: 'break-word',
+            overflowWrap: 'anywhere'
+          }}>
+            {exp.role}
+          </h3>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, fontSize: '0.8rem', background: 'rgba(0, 245, 255, 0.03)', padding: '4px 12px', borderRadius: '4px', border: '1px solid rgba(0, 245, 255, 0.1)' }}>
           <Building2 size={14} style={{ color: '#00f5ff' }} /> <span className="mono" style={{ letterSpacing: '0.05em' }}>{exp.company}</span>
