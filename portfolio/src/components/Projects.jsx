@@ -3,14 +3,24 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import iskconImg from '../assets/projectsImages/ISKCONpilgrimage.jpg';
+import bookImg from '../assets/projectsImages/Bookmarathon.jpg';
+import expenseSplitterImg from '../assets/projectsImages/expensesplitter.jpg';
+import hypekartImg from '../assets/projectsImages/hypekart.jpg';
+import huddleImg from '../assets/projectsImages/huddle.jpg';
+import expenseTrackerImg from '../assets/projectsImages/expensetracker.jpg';
+import ironrootImg from '../assets/projectsImages/ironnrootfitness.png';
+import makeawishImg from '../assets/projectsImages/makeawish.png';
+import sourceoneImg from '../assets/projectsImages/sourceone.png';
+import amsImg from '../assets/projectsImages/ams.png';
+
 const projects = [
   {
     title: 'ISKCON Pilgrimage',
     description:
       'A comprehensive mobile application designed to enhance the pilgrimage experience for devotees. The app serves as a digital companion, providing seamless access to temple information, darshan schedules, festival details, and community features.',
     tech: ['REACT_NATIVE', 'Firebase', 'Notify', 'RAZORPAY'],
-    image:
-      './src/assets/projectsImages/ISKCONpilgrimage.jpg',
+    image: iskconImg,
     id: 'BP-08',
     stability: '99.4%',
     live: 'https://play.google.com/store/search?q=iskcon+pilgrimage&c=apps&hl=en_IN'
@@ -20,8 +30,7 @@ const projects = [
     description:
       'A comprehensive mobile application designed to enhance the book marathon experience for devotees. The app serves as a digital companion, providing seamless access to book marathon information, schedules, and community features.',
     tech: ['REACT_NATIVE', 'Firebase', 'Notify', 'RAZORPAY'],
-    image:
-      './src/assets/projectsImages/Bookmarathon.jpg',
+    image: bookImg,
     id: 'BP-08',
     stability: '99.4%',
     live: 'https://play.google.com/store/apps/details?id=org.iskblr.brihat.mridanga&hl=en_IN'
@@ -31,8 +40,7 @@ const projects = [
     description:
       'Built an expense splitter app to manage shared expenses, calculate balances, and track payments between multiple users in real time.',
     tech: ['REACT NATIVE', 'Firebase', 'Cloudnary'],
-    image:
-      './src/assets/projectsImages/expensesplitter.jpg',
+    image: expenseSplitterImg,
     id: 'BP-08',
     stability: '99.4%',
     github: 'https://github.com/Rohan03march/expenseSpitter'
@@ -42,8 +50,7 @@ const projects = [
     description:
       'Full-featured e-commerce mobile app with authentication, product management, cart, orders and Razorpay payments using Clerk and Supabase.',
     tech: ['REACT_NATIVE', 'SUPABASE', 'CLERK', 'RAZORPAY'],
-    image:
-      './src/assets/projectsImages/hypekart.jpg',
+    image: hypekartImg,
     id: 'BP-08',
     stability: '99.4%',
     github: 'https://github.com/yourusername/hypekart',
@@ -53,8 +60,7 @@ const projects = [
     description:
       'Developed a social media application called Huddle where users can create profiles, share posts, upload images, like and comment on posts, and connect with other users. The app focuses on clean UI, real-time interactions, and smooth user experience.',
     tech: ['REACT Native', 'Convex', 'Clerk'],
-    image:
-      './src/assets/projectsImages/huddle.jpg',
+    image: huddleImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/Huddle-',
@@ -64,8 +70,7 @@ const projects = [
     description:
       'Developed an expense tracker application to help users record daily expenses, categorize spending, and track overall financial activity with a simple and user-friendly interface.',
     tech: ['REACT Native', 'firebase', 'Cloudnary'],
-    image:
-      './src/assets/projectsImages/expensetracker.jpg',
+    image: expenseTrackerImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/expenseTrackerApp',
@@ -75,8 +80,7 @@ const projects = [
     description:
       'Developed a fitness business website for Ironnrootfitness to showcase training programs, services, and contact information. The website helps users explore fitness plans and connect with the trainer online.',
     tech: ['REACT Native', 'firebase', 'Cloudnary'],
-    image:
-      './src/assets/projectsImages/ironnrootfitness.png',
+    image: ironrootImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/Ironnrootfitness',
@@ -87,8 +91,7 @@ const projects = [
     description:
       'Developed an online chocolate e-commerce website where users can browse products, place orders, and make secure payments. The platform includes product listings, cart functionality, and online payment integration.',
     tech: ['Nextjs', 'Typescript', 'MongoDB', 'Cloudnary', 'razorpay'],
-    image:
-      './src/assets/projectsImages/makeawish.png',
+    image: makeawishImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/makeawish',
@@ -99,8 +102,7 @@ const projects = [
     description:
       'Developed a company website for a manpower and recruitment firm to showcase services, company information, and contact details, helping clients connect and explore recruitment solutions.',
     tech: ['HTML', 'CSS', 'JAVASCRIPT'],
-    image:
-      './src/assets/projectsImages/sourceone.png',
+    image: sourceoneImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/SourceoneWeb',
