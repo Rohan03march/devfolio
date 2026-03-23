@@ -113,8 +113,7 @@ const projects = [
     description:
       'Developed a social media application called Huddle where users can create profiles, share posts, upload images, like and comment on posts, and connect with other users. The app focuses on clean UI, real-time interactions, and smooth user experience.',
     tech: ['HTML', 'CSS', 'JAVASCRIPT', 'firebase', 'razorpay'],
-    image:
-      './src/assets/projectsImages/ams.png',
+    image: amsImg,
     id: 'BP-24',
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/AMS',
