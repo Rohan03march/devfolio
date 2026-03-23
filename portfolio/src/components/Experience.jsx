@@ -43,7 +43,7 @@ const ExperienceNode = ({ exp, index }) => (
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-    style={{ marginBottom: '5rem', position: 'relative', paddingLeft: 'clamp(2rem, 8vw, 4rem)' }}
+    style={{ marginBottom: '5rem', position: 'relative', paddingLeft: 'clamp(1.5rem, 6vw, 4rem)' }}
   >
     {/* Energy Conduit Line */}
     <div style={{ position: 'absolute', left: 0, top: 0, bottom: '-5rem', width: '2px', background: 'rgba(0, 245, 255, 0.1)' }}>
@@ -79,16 +79,16 @@ const ExperienceNode = ({ exp, index }) => (
       />
     </motion.div>
 
-    <div className="hologram-card technical-border" style={{ padding: '2.5rem' }}>
+    <div className="hologram-card technical-border" style={{ padding: 'clamp(1.2rem, 4vw, 2.5rem)' }}>
       <div className="scanner-line" />
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-        <div>
-          <span className="mono" style={{ fontSize: '0.7rem', color: '#00f5ff', letterSpacing: '0.2em' }}>{exp.period} // {exp.id}</span>
-          <h3 className="mono" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', marginTop: '0.5rem', fontWeight: 800, color: '#fff' }}>{exp.role}</h3>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '1.5rem' }}>
+        <div style={{ minWidth: '200px', flex: 1 }}>
+          <span className="mono" style={{ fontSize: '0.65rem', color: '#00f5ff', opacity: 0.8, letterSpacing: '0.2em' }}>{exp.period} // {exp.id}</span>
+          <h3 className="mono" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.6rem)', marginTop: '0.4rem', fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>{exp.role}</h3>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, fontSize: '0.85rem' }}>
-          <Building2 size={16} style={{ color: '#00f5ff' }} /> <span className="mono">{exp.company}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'rgba(255, 255, 255, 0.6)', fontWeight: 600, fontSize: '0.8rem', background: 'rgba(0, 245, 255, 0.03)', padding: '4px 12px', borderRadius: '4px', border: '1px solid rgba(0, 245, 255, 0.1)' }}>
+          <Building2 size={14} style={{ color: '#00f5ff' }} /> <span className="mono" style={{ letterSpacing: '0.05em' }}>{exp.company}</span>
         </div>
       </div>
 
