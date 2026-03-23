@@ -5,25 +5,25 @@ import { Globe, Smartphone, Server, Activity, Database, Shield } from 'lucide-re
 const services = [
   {
     icon: <Globe size={28} />,
-    title: 'Platform_Eng',
-    desc: 'Scalable, high-performance web systems built with modern stacks (React, Node, Go).',
+    title: 'Web_Platforms',
+    desc: 'Building scalable web applications using modern stacks like React, Next.js, Node.js, and cloud services.',
     id: 'PX-01',
-    status: 'OPTIMAL'
+    status: 'ACTIVE'
   },
   {
     icon: <Smartphone size={28} />,
-    title: 'Native_Mobility',
-    desc: 'Premium cross-platform mobile experiences with React Native and native performance.',
+    title: 'Mobile_Apps',
+    desc: 'Developing cross-platform mobile apps with React Native and Expo, focusing on performance and clean UI.',
     id: 'PX-02',
     status: 'ACTIVE'
   },
   {
     icon: <Server size={28} />,
-    title: 'Core_Architecture',
-    desc: 'Enterprise-grade backend architecture, secure APIs, and cloud-native solutions.',
+    title: 'Backend_Systems',
+    desc: 'Designing APIs, databases, authentication systems, and cloud deployments for scalable applications.',
     id: 'PX-03',
     status: 'STABLE'
-  },
+  }
 ];
 
 const BitStream = () => {
@@ -46,16 +46,16 @@ const HologramServiceCard = ({ service, delay }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
       className="hologram-card technical-border"
-      style={{ 
-        padding: '3rem 2rem', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        height: '100%', 
+      style={{
+        padding: '3rem 2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
         position: 'relative'
       }}
     >
       <div className="scanner-line" />
-      
+
       {/* HUD Data Top */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem', alignItems: 'flex-start' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
@@ -74,14 +74,14 @@ const HologramServiceCard = ({ service, delay }) => {
       <h3 className="mono" style={{ fontSize: '1.2rem', marginBottom: '1rem', fontWeight: 800, color: '#fff' }}>
         {service.title}
       </h3>
-      
+
       <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.9rem', flex: 1 }}>
         {service.desc}
       </p>
 
       {/* Decorative Bottom Corner */}
       <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', display: 'flex', gap: '4px' }}>
-         {[1,2,3].map(i => <div key={i} style={{ width: '4px', height: '4px', background: '#00f5ff', opacity: 0.3 }} />)}
+        {[1, 2, 3].map(i => <div key={i} style={{ width: '4px', height: '4px', background: '#00f5ff', opacity: 0.3 }} />)}
       </div>
     </motion.div>
   );
@@ -102,18 +102,18 @@ const Services = () => {
         </h2>
       </div>
 
-      <div className="services-grid" style={{ 
+      <div className="services-grid" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
         gap: '2.5rem'
       }}>
         {services.map((service, index) => (
           <HologramServiceCard key={service.title} service={service} delay={index * 0.1} />
         ))}
       </div>
-      
+
       <style>{`
         @media (max-width: 1024px) {
           .services-grid { grid-template-columns: 1fr 1fr !important; }

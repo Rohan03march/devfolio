@@ -4,29 +4,37 @@ import { Building2, Activity, Shield, Terminal } from 'lucide-react';
 
 const experiences = [
   {
-    company: 'Tech Innovators Inc.',
-    role: 'Senior_Full-Stack_Dev',
-    period: '2021 - PRESENT',
-    description: 'Spearheading the architecture of high-performance enterprise platforms. Mastering React, Node.js, and Cloud-native solutions while leading a team of 10+ engineers.',
+    company: 'Source One',
+    role: 'Full_Stack_Developer',
+    period: 'Sep 2024 – Present',
+    description: 'Working on a full-stack job platform with dashboards, employee management, and recruiter workflows. Integrated Firebase Auth, Firestore, Storage, and improved UI/UX performance and responsiveness.',
     id: 'LOG_01',
     status: 'ACTIVE'
   },
   {
-    company: 'Creative Digital Studio',
-    role: 'Lead_Frontend_Eng',
-    period: '2019 - 2021',
-    description: 'Defined the visual identity for top-tier startups. Specialized in Framer Motion, Three.js, and bespoke design systems for immersive web experiences.',
+    company: 'ISKCON Bangalore',
+    role: 'Full_Stack_App/Web_Developer',
+    period: 'Jul 2024 – Jan 2025',
+    description: 'Built SEO-optimized full-stack websites and event platforms handling thousands of users. Implemented Firebase Authentication, Cloud Functions, and improved performance reducing load time by 40%.',
     id: 'LOG_02',
     status: 'COMPLETE'
   },
   {
-    company: 'Junior Software House',
-    role: 'Web_Developer',
-    period: '2017 - 2019',
-    description: 'Engineered responsive web solutions and scalable APIs. Built a strong foundation in modern JavaScript ecosystems and agile delivery.',
+    company: 'Skill Box - Freelancer',
+    role: 'React_Native_Developer',
+    period: 'Jan 2021 – Jul 2022',
+    description: 'Developed and deployed cross-platform mobile apps using React Native and Expo. Integrated payments, push notifications, analytics, and optimized app performance and stability.',
     id: 'LOG_03',
     status: 'COMPLETE'
   },
+  {
+    company: 'HealthKart - Freelancer',
+    role: 'UX/UI_Developer',
+    period: 'Jan 2021 – Apr 2023',
+    description: 'Built responsive product pages and UI components for e-commerce platforms like Amazon, Myntra, and Flipkart, improving conversions and mobile user experience.',
+    id: 'LOG_04',
+    status: 'COMPLETE'
+  }
 ];
 
 const ExperienceNode = ({ exp, index }) => (
@@ -39,32 +47,32 @@ const ExperienceNode = ({ exp, index }) => (
   >
     {/* Energy Conduit Line */}
     <div style={{ position: 'absolute', left: 0, top: 0, bottom: '-5rem', width: '2px', background: 'rgba(0, 245, 255, 0.1)' }}>
-       <motion.div 
-         initial={{ height: 0 }}
-         whileInView={{ height: '100%' }}
-         transition={{ duration: 1.5, delay: index * 0.2 }}
-         style={{ width: '100%', background: '#00f5ff', boxShadow: '0 0 10px #00f5ff' }}
-       />
+      <motion.div
+        initial={{ height: 0 }}
+        whileInView={{ height: '100%' }}
+        transition={{ duration: 1.5, delay: index * 0.2 }}
+        style={{ width: '100%', background: '#00f5ff', boxShadow: '0 0 10px #00f5ff' }}
+      />
     </div>
 
     {/* Pulsing Node */}
-    <motion.div 
+    <motion.div
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
-      style={{ 
-        position: 'absolute', 
-        left: '-7px', 
-        top: '1.5rem', 
-        width: '16px', 
-        height: '16px', 
-        borderRadius: '50%', 
+      style={{
+        position: 'absolute',
+        left: '-7px',
+        top: '1.5rem',
+        width: '16px',
+        height: '16px',
+        borderRadius: '50%',
         background: '#020202',
         border: '2px solid #00f5ff',
         boxShadow: '0 0 15px #00f5ff',
         zIndex: 2
       }}
     >
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
         transition={{ repeat: Infinity, duration: 2 }}
         style={{ position: 'absolute', inset: -4, borderRadius: '50%', background: 'rgba(0, 245, 255, 0.2)' }}
@@ -73,7 +81,7 @@ const ExperienceNode = ({ exp, index }) => (
 
     <div className="hologram-card technical-border" style={{ padding: '2.5rem' }}>
       <div className="scanner-line" />
-      
+
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
         <div>
           <span className="mono" style={{ fontSize: '0.7rem', color: '#00f5ff', letterSpacing: '0.2em' }}>{exp.period} // {exp.id}</span>
@@ -83,16 +91,16 @@ const ExperienceNode = ({ exp, index }) => (
           <Building2 size={16} style={{ color: '#00f5ff' }} /> <span className="mono">{exp.company}</span>
         </div>
       </div>
-      
+
       <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.95rem', marginBottom: '1.5rem' }}>{exp.description}</p>
-      
+
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-         <div style={{ padding: '2px 8px', border: '1px solid rgba(0, 245, 255, 0.2)', borderRadius: '2px', fontSize: '0.55rem', color: '#00f5ff', fontFamily: 'monospace' }}>
-            STATUS: {exp.status}
-         </div>
-         <div style={{ display: 'flex', gap: '4px' }}>
-            {[1,2,3,4].map(i => <div key={i} style={{ width: '4px', height: '1px', background: '#00f5ff', opacity: 0.3 }} />)}
-         </div>
+        <div style={{ padding: '2px 8px', border: '1px solid rgba(0, 245, 255, 0.2)', borderRadius: '2px', fontSize: '0.55rem', color: '#00f5ff', fontFamily: 'monospace' }}>
+          STATUS: {exp.status}
+        </div>
+        <div style={{ display: 'flex', gap: '4px' }}>
+          {[1, 2, 3, 4].map(i => <div key={i} style={{ width: '4px', height: '1px', background: '#00f5ff', opacity: 0.3 }} />)}
+        </div>
       </div>
     </div>
   </motion.div>

@@ -21,7 +21,7 @@ const ScrollToTop = () => {
 const NavigationWrapper = () => {
   const location = useLocation();
   const showNav = location.pathname !== '/projects';
-  
+
   return showNav ? <Navigation /> : null;
 };
 
@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
@@ -57,17 +57,17 @@ function App() {
         <JarvisHUD />
         <CustomCursor />
         <NavigationWrapper />
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
 
-        <footer style={{ 
-          textAlign: 'center', 
-          padding: '4rem 2rem', 
-          borderTop: '1px solid rgba(0, 245, 255, 0.1)', 
-          color: 'rgba(255, 255, 255, 0.5)', 
+        <footer style={{
+          textAlign: 'center',
+          padding: '4rem 2rem',
+          borderTop: '1px solid rgba(0, 245, 255, 0.1)',
+          color: 'rgba(255, 255, 255, 0.5)',
           fontSize: '0.7rem',
           position: 'relative',
           background: 'rgba(2, 2, 4, 0.8)'
@@ -75,9 +75,6 @@ function App() {
           <div className="mono" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <p style={{ letterSpacing: '0.2em' }}>
               <span style={{ color: '#00f5ff' }}>©</span> {new Date().getFullYear()} // ROHAN.SYSTEM_v1.0.4
-            </p>
-            <p style={{ opacity: 0.6, fontSize: '0.6rem' }}>
-              DEPLOYED_BY: <span style={{ color: '#00f5ff' }}>HYPER_CORE</span> // PROTOCOL: <span style={{ color: '#00f5ff' }}>IRONMAN_HUD</span>
             </p>
           </div>
           <div style={{ position: 'absolute', top: -1, left: '50%', transform: 'translateX(-50%)', width: '60px', height: '2px', background: '#00f5ff', boxShadow: '0 0 10px #00f5ff' }} />
