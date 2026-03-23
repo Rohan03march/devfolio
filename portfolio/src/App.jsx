@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
+import JarvisHUD from './components/JarvisHUD';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
 import './App.css';
@@ -53,6 +54,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="app-container">
+        <JarvisHUD />
         <CustomCursor />
         <NavigationWrapper />
         
@@ -61,9 +63,24 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
 
-        <footer style={{ textAlign: 'center', padding: '2rem', borderTop: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-          <p>© {new Date().getFullYear()} Rohan.P. All rights reserved.</p>
-          <p style={{ marginTop: '0.5rem' }}>Built with React, Three.js & Framer Motion.</p>
+        <footer style={{ 
+          textAlign: 'center', 
+          padding: '4rem 2rem', 
+          borderTop: '1px solid rgba(0, 245, 255, 0.1)', 
+          color: 'rgba(255, 255, 255, 0.5)', 
+          fontSize: '0.7rem',
+          position: 'relative',
+          background: 'rgba(2, 2, 4, 0.8)'
+        }}>
+          <div className="mono" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <p style={{ letterSpacing: '0.2em' }}>
+              <span style={{ color: '#00f5ff' }}>©</span> {new Date().getFullYear()} // ROHAN.SYSTEM_v1.0.4
+            </p>
+            <p style={{ opacity: 0.6, fontSize: '0.6rem' }}>
+              DEPLOYED_BY: <span style={{ color: '#00f5ff' }}>HYPER_CORE</span> // PROTOCOL: <span style={{ color: '#00f5ff' }}>IRONMAN_HUD</span>
+            </p>
+          </div>
+          <div style={{ position: 'absolute', top: -1, left: '50%', transform: 'translateX(-50%)', width: '60px', height: '2px', background: '#00f5ff', boxShadow: '0 0 10px #00f5ff' }} />
         </footer>
       </div>
     </Router>

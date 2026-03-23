@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Cpu, Zap, Activity } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
@@ -21,7 +21,7 @@ const Navigation = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsTinyMobile(window.innerWidth < 360);
-      setIsMobile(window.innerWidth <= 1000);
+      setIsMobile(window.innerWidth <= 768);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -52,16 +52,19 @@ const Navigation = () => {
         {...linkProps}
         onClick={handleClick}
         style={{
-          fontSize: mobile ? '1.25rem' : '0.85rem',
+          fontSize: mobile ? '1.25rem' : '0.75rem',
           fontWeight: 600,
-          color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
+          color: isActive ? '#00f5ff' : 'var(--text-secondary)',
           textDecoration: 'none',
-          padding: mobile ? '1rem 0' : '0.5rem 1rem',
+          padding: mobile ? '1rem 0' : '0.5rem 0.8rem',
           transition: 'all 0.3s ease',
           display: 'flex',
           alignItems: 'center',
           gap: '0.4rem',
-          position: 'relative'
+          position: 'relative',
+          fontFamily: 'var(--font-mono)',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase'
         }}
         className="nav-item-link"
       >
@@ -72,11 +75,11 @@ const Navigation = () => {
             style={{
               position: 'absolute',
               bottom: 0,
-              left: '1rem',
-              right: '1rem',
-              height: '2px',
-              background: 'var(--accent-color)',
-              borderRadius: '2px'
+              left: '0.8rem',
+              right: '0.8rem',
+              height: '1px',
+              background: '#00f5ff',
+              boxShadow: '0 0 10px #00f5ff'
             }}
           />
         )}
@@ -92,65 +95,89 @@ const Navigation = () => {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         style={{
           position: 'fixed',
-          top: isTinyMobile ? '2.5rem' : (isMobile ? '4.5rem' : '4rem'),
+          top: isTinyMobile ? '1rem' : '2rem',
           left: 0,
           width: '100%',
           zIndex: 100,
           display: 'flex',
           justifyContent: 'center',
-          padding: isTinyMobile ? '0 0.8rem' : '0 1.2rem',
+          padding: '0 1.5rem',
           pointerEvents: 'none',
           boxSizing: 'border-box'
         }}
       >
         <div
+          className="hologram-card"
           style={{
-            width: isTinyMobile ? '100%' : '92%',
-            maxWidth: '1000px',
-            margin: '0 auto',
-            background: 'rgba(8, 8, 8, 0.75)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '999px',
-            padding: isTinyMobile ? '0.5rem 1rem' : '0.6rem 1.2rem 0.6rem 1.8rem',
+            width: '100%',
+            maxWidth: '1100px',
+            background: 'rgba(8, 8, 12, 0.4)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            border: '1px solid rgba(0, 245, 255, 0.1)',
+            borderRadius: '4px',
+            padding: isTinyMobile ? '0.5rem 1rem' : '0.6rem 1.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: isTinyMobile ? '0.5rem' : 'clamp(1rem, 4vw, 3rem)',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-            pointerEvents: 'auto'
+            boxShadow: '0 0 40px rgba(0, 245, 255, 0.05)',
+            pointerEvents: 'auto',
+            position: 'relative'
           }}
         >
+          {/* Top Edge Corner Decoration */}
+          <div style={{ position: 'absolute', top: -1, left: -1, width: '15px', height: '15px', borderTop: '2px solid #00f5ff', borderLeft: '2px solid #00f5ff' }} />
+          <div style={{ position: 'absolute', bottom: -1, right: -1, width: '15px', height: '15px', borderBottom: '2px solid #00f5ff', borderRight: '2px solid #00f5ff' }} />
+
           <Link to="/" style={{
-            fontSize: isTinyMobile ? '1rem' : '1.3rem',
+            fontSize: isTinyMobile ? '1rem' : '1.2rem',
             fontWeight: 800,
-            color: 'var(--text-primary)',
+            color: '#fff',
             textDecoration: 'none',
-            whiteSpace: 'nowrap'
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.05em',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
           }}>
-            Rohan<span style={{ color: 'var(--accent-color)' }}>.</span>P
+            <Cpu size={18} className="text-cyan-400 group-hover:rotate-90 transition-transform" style={{ color: '#00f5ff' }} />
+            ROHAN<span style={{ color: '#00f5ff' }}>.</span>SYSTEM
           </Link>
 
           {/* Desktop Nav */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }} className="desktop-only">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="desktop-only">
             {navItems.map((item) => (
               <NavLink key={item.name} item={item} />
             ))}
             <Link to="/#contact" style={{
-              padding: '0.7rem 1.8rem',
-              borderRadius: '999px',
-              background: 'var(--text-primary)',
-              color: 'var(--bg-primary)',
+              padding: '0.6rem 1.4rem',
+              borderRadius: '2px',
+              background: 'rgba(0, 245, 255, 0.1)',
+              border: '1px solid rgba(0, 245, 255, 0.3)',
+              color: '#00f5ff',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: '0.75rem',
               textDecoration: 'none',
-              marginLeft: '0.8rem',
-              transition: 'all 0.4s ease'
-            }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
-              Hire Me
+              marginLeft: '1rem',
+              fontFamily: 'var(--font-mono)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              boxShadow: '0 0 15px rgba(0, 245, 255, 0.1)'
+            }} 
+            className="hover:bg-cyan-500/20 hover:border-cyan-400"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(0, 245, 255, 0.2)';
+              e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 245, 255, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(0, 245, 255, 0.1)';
+              e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 245, 255, 0.1)';
+            }}>
+              <Zap size={14} /> Hire_Me
             </Link>
           </div>
 
@@ -159,12 +186,12 @@ const Navigation = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: 'none',
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.05)',
-              color: 'var(--text-primary)',
+              background: 'rgba(0, 245, 255, 0.05)',
+              border: '1px solid rgba(0, 245, 255, 0.1)',
+              color: '#00f5ff',
               cursor: 'pointer',
-              padding: '0.7rem',
-              borderRadius: '12px',
+              padding: '0.6rem',
+              borderRadius: '4px',
               transition: 'all 0.3s ease'
             }}
             className="mobile-toggle"
@@ -178,70 +205,66 @@ const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(25px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             style={{
               position: 'fixed',
               inset: 0,
               zIndex: 99,
-              background: 'rgba(3, 3, 3, 0.9)',
+              background: 'rgba(2, 2, 4, 0.95)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '3rem'
+              padding: '2rem'
             }}
           >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              style={{
+
+             <div className="hologram-card" style={{
+                width: '100%',
+                maxWidth: '400px',
+                padding: '2rem 1.5rem', /* Reduced padding */
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.2rem',
-                width: '100%',
-                maxWidth: '300px',
-                textAlign: 'center'
-              }}
-            >
-              {navItems.map((item) => (
-                <NavLink key={item.name} item={item} mobile />
-              ))}
-              <Link
-                to="/#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  marginTop: '2rem',
-                  padding: '1.1rem',
-                  borderRadius: '16px',
-                  background: 'var(--text-primary)',
-                  color: 'var(--bg-primary)',
-                  fontWeight: 800,
-                  fontSize: '1.1rem',
-                  textDecoration: 'none',
-                  boxShadow: '0 10px 40px rgba(255,255,255,0.1)'
-                }}
-              >
-                Let's Collaborate
-              </Link>
-            </motion.div>
+                gap: '0.8rem', /* Reduced gap */
+                textAlign: 'center',
+                border: '1px solid rgba(0, 245, 255, 0.2)'
+             }}>
+                {navItems.map((item) => (
+                    <NavLink key={item.name} item={item} mobile />
+                ))}
+                <Link
+                    to="/#contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{
+                    marginTop: '1.5rem', /* Reduced margin */
+                    padding: '1rem', /* Reduced padding */
+                    borderRadius: '4px',
+                    background: '#00f5ff',
+                    color: '#000',
+                    fontWeight: 800,
+                    fontSize: '1rem',
+                    textDecoration: 'none',
+                    fontFamily: 'var(--font-mono)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em'
+                    }}
+                >
+                    <Activity size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Initi_Collaborate
+                </Link>
+             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
           .desktop-only { display: none !important; }
           .mobile-toggle { display: block !important; }
         }
-        .nav-item-link {
-          border-radius: 12px;
-        }
         .nav-item-link:hover {
-          background: rgba(255,255,255,0.03);
-          color: var(--text-primary) !important;
+          color: #00f5ff !important;
         }
       `}</style>
     </>
@@ -249,3 +272,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
