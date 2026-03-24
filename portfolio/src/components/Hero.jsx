@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
-import { 
-  ArrowRight, Activity, Cpu, Terminal, 
-  Code2, Database, Globe, Layers, 
-  ShieldCheck, Zap, Sparkles 
+import {
+  ArrowRight, Activity, Cpu, Terminal,
+  Code2, Database, Globe, Layers,
+  ShieldCheck, Zap, Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -30,11 +30,11 @@ const Typewriter = ({ text, delay = 0, speed = 40, className, style }) => {
         <motion.span
           animate={{ opacity: [0, 1, 0] }}
           transition={{ duration: 0.8, repeat: Infinity }}
-          style={{ 
-            display: 'inline-block', 
-            width: '2px', 
-            height: '1em', 
-            background: '#00f5ff', 
+          style={{
+            display: 'inline-block',
+            width: '2px',
+            height: '1em',
+            background: '#00f5ff',
             marginLeft: '2px',
             verticalAlign: 'middle'
           }}
@@ -56,40 +56,33 @@ const BitStream = () => {
   return <span style={{ fontFamily: 'monospace', opacity: 0.6 }}>{bits}</span>;
 };
 
-const Satellite = ({ icon: Icon, delay, radius, speed }) => (
+const DiagnosticSatellite = ({ label, value, delay, radius, speed, angleOffset = 0 }) => (
   <motion.div
     style={{
       position: 'absolute',
-      width: '40px',
-      height: '40px',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '50%',
-      background: 'rgba(255, 255, 255, 0.03)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      color: 'rgba(255, 255, 255, 0.5)',
-      boxShadow: '0 0 15px rgba(0, 245, 255, 0.1)',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: '4px',
       zIndex: 1,
       pointerEvents: 'none'
     }}
     animate={{
       x: [
-        Math.cos(0) * radius,
-        Math.cos(Math.PI / 2) * radius,
-        Math.cos(Math.PI) * radius,
-        Math.cos(3 * Math.PI / 2) * radius,
-        Math.cos(2 * Math.PI) * radius
+        Math.cos(angleOffset) * radius,
+        Math.cos(angleOffset + Math.PI / 2) * radius,
+        Math.cos(angleOffset + Math.PI) * radius,
+        Math.cos(angleOffset + 3 * Math.PI / 2) * radius,
+        Math.cos(angleOffset + 2 * Math.PI) * radius
       ],
       y: [
-        Math.sin(0) * radius,
-        Math.sin(Math.PI / 2) * radius,
-        Math.sin(Math.PI) * radius,
-        Math.sin(3 * Math.PI / 2) * radius,
-        Math.sin(2 * Math.PI) * radius
+        Math.sin(angleOffset) * radius,
+        Math.sin(angleOffset + Math.PI / 2) * radius,
+        Math.sin(angleOffset + Math.PI) * radius,
+        Math.sin(angleOffset + 3 * Math.PI / 2) * radius,
+        Math.sin(angleOffset + 2 * Math.PI) * radius
       ],
-      rotate: [0, 360],
-      opacity: [0.2, 0.5, 0.2]
+      opacity: [0.3, 0.6, 0.3]
     }}
     transition={{
       duration: speed,
@@ -98,9 +91,92 @@ const Satellite = ({ icon: Icon, delay, radius, speed }) => (
       ease: "linear"
     }}
   >
-    <Icon size={18} />
+    <div className="mono" style={{ fontSize: '0.5rem', color: '#00f5ff', opacity: 0.6, letterSpacing: '0.1em' }}>{label}</div>
+    <div className="mono" style={{ fontSize: '0.7rem', color: '#fff', fontWeight: 600 }}>{value}</div>
+    <div style={{ width: '40px', height: '1px', background: 'rgba(0, 245, 255, 0.3)' }} />
   </motion.div>
 );
+const QuantumCore = () => {
+  return (
+    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 1, overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '600px', height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Deep Atmosphere Glow */}
+        <motion.div
+          animate={{ scale: [1, 1.4, 1], opacity: [0.05, 0.15, 0.05] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: 'absolute',
+            width: '500px',
+            height: '500px',
+            background: 'radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%)',
+            borderRadius: '50%',
+            filter: 'blur(60px)',
+          }}
+        />
+
+        {/* Central Singularity */}
+        <motion.div
+          animate={{ scale: [0.95, 1.05, 0.95], rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          style={{
+            position: 'absolute',
+            width: '120px',
+            height: '120px',
+            border: '2px solid rgba(0, 245, 255, 0.2)',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 0 40px rgba(0, 245, 255, 0.1)'
+          }}
+        >
+          <div style={{ width: '40px', height: '40px', background: '#00f5ff', borderRadius: '50%', boxShadow: '0 0 30px #00f5ff', opacity: 0.8 }} />
+        </motion.div>
+
+        {/* Geometric Orbitals */}
+        <motion.svg width="800" height="800" viewBox="0 0 800 800" style={{ position: 'absolute' }}>
+          <defs>
+            <linearGradient id="orb-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="transparent" />
+              <stop offset="50%" stopColor="#00f5ff" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+          </defs>
+          <motion.circle
+            cx="400" cy="400" r="350" stroke="url(#orb-grad)" strokeWidth="0.5" fill="none"
+            animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle
+            cx="400" cy="400" r="280" stroke="rgba(0, 245, 255, 0.1)" strokeWidth="1" strokeDasharray="10 20" fill="none"
+            animate={{ rotate: -360 }} transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.circle
+            cx="400" cy="400" r="180" stroke="rgba(0, 245, 255, 0.3)" strokeWidth="0.5" fill="none"
+          />
+        </motion.svg>
+
+        {/* Pulsing Sync Dots */}
+        {[0, 120, 240].map((angle, i) => (
+          <motion.div
+            key={i}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: i * 2 }}
+            style={{ position: 'absolute', width: '360px', height: '360px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <div style={{
+              width: '6px',
+              height: '6px',
+              background: '#00f5ff',
+              borderRadius: '50%',
+              boxShadow: '0 0 10px #00f5ff',
+              transform: 'translateY(-180px)'
+            }} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const DataDust = () => {
   const canvasRef = useRef(null);
@@ -181,15 +257,15 @@ const DataDust = () => {
 const TechOrbits = () => (
   <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 1, opacity: 0.15 }}>
     <motion.svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <motion.circle 
+      <motion.circle
         cx="300" cy="300" r="280" stroke="#00f5ff" strokeWidth="0.5" strokeDasharray="10 20"
         animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
-      <motion.circle 
+      <motion.circle
         cx="300" cy="300" r="200" stroke="#00f5ff" strokeWidth="1" strokeDasharray="100 50"
         animate={{ rotate: -360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       />
-      <motion.path 
+      <motion.path
         d="M300 100 A200 200 0 0 1 500 300" stroke="#00f5ff" strokeWidth="2" strokeLinecap="round"
         animate={{ opacity: [0.2, 0.8, 0.2] }} transition={{ duration: 4, repeat: Infinity }}
       />
@@ -197,317 +273,490 @@ const TechOrbits = () => (
   </div>
 );
 
-const HeroSkeleton = () => (
-  <section className="technical-grid" style={{
-    position: 'relative',
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: '#030303',
-    padding: '0 1.5rem',
-    overflow: 'hidden'
-  }}>
-    <div className="skeleton" style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.05)', opacity: 0.1 }} />
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '2.5rem', width: '100%', maxWidth: '800px', zIndex: 2 }}>
-      <div className="skeleton" style={{ width: '220px', height: '32px', borderRadius: '4px' }} />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', alignItems: 'center' }}>
-        <div className="skeleton" style={{ width: '95%', height: 'clamp(50px, 8vw, 80px)', borderRadius: '4px' }} />
-        <div className="skeleton" style={{ width: '75%', height: 'clamp(50px, 8vw, 80px)', borderRadius: '4px' }} />
+const ArcReactorLoader = () => {
+  const [percent, setPercent] = useState(0);
+  const [logs, setLogs] = useState([]);
+
+  const bootLogs = useMemo(() => [
+    "INITIALIZING_CORE_REACTIVE_UNIT...",
+    "CHECKING_INTEGRITY_SHIELD...",
+    "POWER_LEVEL_OPTIMIZED: 100%",
+    "BYPASSING_SECURITY_PROTOCOLS...",
+    "JARVIS_ONLINE_V4.2.1",
+    "WELCOME_HOME_ROHAN"
+  ], []);
+
+  useEffect(() => {
+    const duration = 3000;
+    const interval = setInterval(() => {
+      setPercent(prev => {
+        if (prev >= 100) return 100;
+        return prev + 1;
+      });
+    }, duration / 100);
+
+    const logInterval = setInterval(() => {
+      setLogs(prev => {
+        if (prev.length >= bootLogs.length) return prev;
+        return [...prev, bootLogs[prev.length]];
+      });
+    }, duration / bootLogs.length);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(logInterval);
+    };
+  }, [bootLogs]);
+
+  return (
+    <div style={{
+      position: 'fixed',
+      inset: 0,
+      background: '#010101',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000,
+      overflow: 'hidden'
+    }}>
+      {/* Background Cinematic Atmosphere */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(circle at 50% 50%, rgba(0, 50, 60, 0.4) 0%, transparent 70%)',
+        opacity: 0.5,
+      }} />
+
+      <div style={{ position: 'relative', width: 'clamp(280px, 50vw, 450px)', height: 'clamp(280px, 50vw, 450px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Deep Atmosphere Glow */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          style={{
+            position: 'absolute',
+            width: '120%',
+            height: '120%',
+            background: 'radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%)',
+            borderRadius: '50%',
+            filter: 'blur(50px)',
+          }}
+        />
+
+        <motion.svg viewBox="0 0 200 200" style={{ width: '100%', height: '100%', filter: 'drop-shadow(0 0 30px rgba(0, 245, 255, 0.6))' }}>
+          {/* Level 3: Outer Rotating Frame */}
+          <motion.g animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+            {[...Array(10)].map((_, i) => (
+              <motion.path
+                key={i}
+                d="M100 5 A95 95 0 0 1 130 10 L128 25 A80 80 0 0 0 100 22 Z"
+                fill="rgba(0, 245, 255, 0.15)"
+                stroke="#00f5ff"
+                strokeWidth="0.5"
+                transform={`rotate(${i * 36}, 100, 100)`}
+              />
+            ))}
+          </motion.g>
+
+          {/* Level 2: Middle Power Fins */}
+          <motion.g animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
+            {[...Array(6)].map((_, i) => (
+              <g key={i} transform={`rotate(${i * 60}, 100, 100)`}>
+                <rect x="96" y="30" width="8" height="25" fill="#00f5ff" opacity="0.4" rx="1" />
+                <rect x="98" y="32" width="4" height="21" fill="#fff" opacity="0.6" rx="1" />
+              </g>
+            ))}
+          </motion.g>
+
+          {/* Level 1: Inner Magnetic Ring */}
+          <motion.circle
+            cx="100" cy="100" r="45"
+            stroke="#00f5ff"
+            strokeWidth="3"
+            strokeDasharray="15 8"
+            fill="none"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          />
+
+          {/* The Singularity Core */}
+          <motion.g
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 0.1, repeat: Infinity }}
+          >
+            {/* Core Glow Layers */}
+            <circle cx="100" cy="100" r="32" fill="rgba(0, 245, 255, 0.2)" />
+            <circle cx="100" cy="100" r="28" fill="#00f5ff" opacity="0.8" />
+            <circle cx="100" cy="100" r="20" fill="#fff" />
+
+            {/* Core Internal HUD */}
+            <motion.circle
+              cx="100" cy="100" r="24"
+              stroke="#010101"
+              strokeWidth="4"
+              strokeDasharray="2 4"
+              fill="none"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
+          </motion.g>
+
+          {/* Connectors / Power Conduits */}
+          {[...Array(30)].map((_, i) => (
+            <line
+              key={i}
+              x1="100" y1="55" x2="100" y2="60"
+              stroke="#00f5ff"
+              strokeWidth="0.5"
+              opacity="0.3"
+              transform={`rotate(${i * 12}, 100, 100)`}
+            />
+          ))}
+        </motion.svg>
+
+        {/* Progress Display */}
+        <div style={{
+          position: 'absolute',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '0.2rem',
+          pointerEvents: 'none'
+        }}>
+          <span className="mono" style={{ color: '#00f5ff', fontSize: '1.2rem', fontWeight: 900, textShadow: '0 0 15px #00f5ff' }}>
+            {percent}%
+          </span>
+          <span className="mono" style={{ color: '#00f5ff', fontSize: '0.5rem', opacity: 0.6, letterSpacing: '0.2em' }}>
+            SYNCHRONIZING
+          </span>
+        </div>
       </div>
-      <div className="skeleton" style={{ width: '85%', height: '60px', borderRadius: '4px' }} />
+
+      {/* Cinematic HUD Overlays */}
+      <div style={{
+        position: 'absolute',
+        top: '2rem',
+        left: '2rem',
+        fontSize: '0.6rem',
+        color: '#00f5ff',
+        opacity: 0.4
+      }} className="mono">
+        <div>CORE_TEMP: 38.2°C</div>
+        <div>STABILITY: 100%</div>
+      </div>
+
+      <div style={{
+        position: 'absolute',
+        bottom: '2rem',
+        right: '2rem',
+        textAlign: 'right',
+        fontSize: '0.6rem',
+        color: '#00f5ff',
+        opacity: 0.4
+      }} className="mono">
+        <div>LOC: 51.52° N, 0.12° W</div>
+        <div>AUTH: LEVEL_5_ENCRYPTION</div>
+      </div>
+
+      {/* Scrolling Diagnostic Logs */}
+      <div style={{
+        position: 'absolute',
+        bottom: '5rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '320px',
+        maxHeight: '100px',
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        maskImage: 'linear-gradient(transparent, black 20%, black 80%, transparent)'
+      }}>
+        <AnimatePresence mode="popLayout">
+          {logs.map((log, i) => (
+            <motion.div
+              key={log}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              style={{
+                fontFamily: 'monospace',
+                fontSize: '0.6rem',
+                color: '#00f5ff',
+                opacity: 0.8,
+                textAlign: 'center',
+                marginBottom: '4px'
+              }}
+            >
+              &gt;&gt; {log}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {/* Screen Degradation Effects */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 245, 255, 0.04) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02))',
+        backgroundSize: '100% 3px, 3px 100%',
+        pointerEvents: 'none',
+        zIndex: 10
+      }} />
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        boxShadow: 'inset 0 0 200px rgba(0, 0, 0, 0.95)',
+        pointerEvents: 'none'
+      }} />
     </div>
-  </section>
-);
+  );
+};
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll();
-  
+
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.98]);
-
-  // Smoother parallax
-  const x = useSpring(useTransform(useScroll().scrollY, [0, 500], [0, 0]), { stiffness: 100, damping: 30 }); // Placeholder for mouse parallax
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 40,
-        y: (e.clientY / window.innerHeight - 0.5) * 40
+        x: (e.clientX / window.innerWidth - 0.5) * 30,
+        y: (e.clientY / window.innerHeight - 0.5) * 30
       });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    const timer = setTimeout(() => setIsLoading(false), 800);
+    const timer = setTimeout(() => setIsLoading(false), 3000);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       clearTimeout(timer);
     };
   }, []);
 
-  if (isLoading) return <HeroSkeleton />;
-
   return (
-    <section id="home" style={{
-      position: 'relative',
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      overflow: 'hidden',
-      background: '#010101',
-      padding: 'clamp(9rem, 20vh, 12rem) clamp(1.5rem, 5vw, 4rem) 4rem'
-    }}>
-      {/* 1. Deep Background Layer (Slowest) */}
-      <motion.div 
-        style={{ 
-          position: 'absolute', 
-          inset: '-10%', 
-          zIndex: 0,
-          x: mousePos.x * 0.2,
-          y: mousePos.y * 0.2,
-          opacity: 0.5
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            style={{ position: 'fixed', inset: 0, zIndex: 1000 }}
+          >
+            <ArcReactorLoader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.section
+        key="hero"
+        id="home"
+        initial={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
+        animate={{ 
+          opacity: isLoading ? 0 : 1,
+          scale: isLoading ? 1.05 : 1,
+          filter: isLoading ? 'blur(10px)' : 'blur(0px)'
         }}
-      >
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `linear-gradient(rgba(0, 245, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, 0.05) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-        }} />
-        <DataDust />
-      </motion.div>
-
-      {/* 2. Mid Ground Layer (Tech Orbits) */}
-      <motion.div 
-        style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          zIndex: 1,
-          x: mousePos.x * 0.5,
-          y: mousePos.y * 0.5,
+        transition={{ 
+          duration: 1.5, 
+          ease: [0.16, 1, 0.3, 1], // Custom slow-out ease
+          delay: isLoading ? 0 : 0.4 
         }}
-      >
-        <TechOrbits />
-      </motion.div>
-
-      {/* 3. Global Scanner Line */}
-      <motion.div 
-        animate={{ y: ['-100%', '200%'] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        style={{ 
-          position: 'absolute', 
-          left: 0, 
-          right: 0, 
-          height: '2px', 
-          background: 'linear-gradient(90deg, transparent, #00f5ff, transparent)',
-          opacity: 0.1,
-          boxShadow: '0 0 15px #00f5ff',
-          zIndex: 4,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Floating Satellites (Hidden on small mobile for clarity) */}
-      <div className="desktop-only" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1 }}>
-        <Satellite icon={Code2} delay={0} radius={350} speed={40} />
-        <Satellite icon={Cpu} delay={10} radius={400} speed={45} />
-        <Satellite icon={Terminal} delay={20} radius={380} speed={35} />
-      </div>
-
-      {/* 4. HUD Glass Markers (Fastest) */}
-      <motion.div 
-        style={{ 
-          position: 'absolute', 
-          inset: 'clamp(1rem, 4vw, 3rem)', 
-          pointerEvents: 'none', 
-          zIndex: 5,
-          x: mousePos.x * -0.8,
-          y: mousePos.y * -0.8,
-        }}
-      >
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '60px', height: '60px', borderTop: '2px solid #00f5ff', borderLeft: '2px solid #00f5ff', opacity: 0.4 }} />
-        <div style={{ position: 'absolute', bottom: 0, right: 0, width: '60px', height: '60px', borderBottom: '2px solid #00f5ff', borderRight: '2px solid #00f5ff', opacity: 0.4 }} />
-        
-        <div className="mono" style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', fontSize: '0.6rem', color: '#00f5ff' }}>
-          <span style={{ opacity: 0.6 }}>CORD_X: {mousePos.x.toFixed(2)}</span>
-          <span style={{ opacity: 0.6 }}>CORD_Y: {mousePos.y.toFixed(2)}</span>
-          <BitStream />
-        </div>
-
-        <div className="mono" style={{ position: 'absolute', bottom: '1rem', left: '1rem', fontSize: '0.5rem', color: '#00f5ff', opacity: 0.3 }}>
-           SYSTEM_INTEGRITY: 100% // NO_THREATS_DETECTED
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="container"
         style={{
           position: 'relative',
-          zIndex: 2,
-          opacity,
-          scale,
-          width: '100%',
+          minHeight: '100vh',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          textAlign: 'center'
+          justifyContent: 'center',
+          width: '100%',
+          overflow: 'hidden',
+          background: '#010101',
+          padding: 'clamp(6rem, 15vh, 10rem) clamp(1rem, 5vw, 4rem)'
         }}
       >
+        {/* 1. Background Grid & Particles */}
         <motion.div
-          initial={{ opacity: 0, filter: 'blur(20px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 1 }}
-          style={{ 
-            maxWidth: '1080px',
-            padding: 'clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 6vw, 4rem)',
-            borderRadius: '12px',
-            background: 'rgba(8, 8, 12, 0.4)',
-            backdropFilter: 'blur(40px)',
-            border: '1px solid rgba(0, 245, 255, 0.1)',
-            boxShadow: '0 0 100px rgba(0, 245, 255, 0.05)',
-            position: 'relative',
-            width: '100%'
+          animate={{ 
+            opacity: isLoading ? 0 : 0.4,
+            scale: isLoading ? 1.1 : 1
+          }}
+          transition={{ duration: 2, ease: "easeOut", delay: 0.6 }}
+          style={{
+            position: 'absolute',
+            inset: '-5%',
+            zIndex: 0,
+            x: mousePos.x * 0.1,
+            y: mousePos.y * 0.1,
           }}
         >
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `linear-gradient(rgba(0, 245, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, 0.05) 1px, transparent 1px)`,
+            backgroundSize: '80px 80px',
+          }} />
+          <DataDust />
+        </motion.div>
+
+        {/* 2. Central Quantum Core */}
+        <QuantumCore />
+
+        {/* 3. Diagnostic Satellites */}
+        <div className="desktop-only" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1 }}>
+          <DiagnosticSatellite label="CORE_VELOCITY" value="842.5 KM/S" delay={0.5} radius={320} speed={40} angleOffset={0} />
+          <DiagnosticSatellite label="SYNC_FREQUENCY" value="14.22 GHZ" delay={0.8} radius={380} speed={45} angleOffset={Math.PI / 3} />
+          <DiagnosticSatellite label="SYSTEM_LOAD" value="0.042 ms" delay={1.1} radius={350} speed={35} angleOffset={2 * Math.PI / 3} />
+        </div>
+
+        {/* 4. Main Symmetrical Content */}
+        <motion.div
+          className="container"
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            opacity,
+            scale,
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center'
+          }}
+        >
+          {/* Top Header Label */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.8rem',
-              padding: '0.6rem 1.4rem',
+            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '0.5rem 1.5rem',
               background: 'rgba(0, 245, 255, 0.05)',
               border: '1px solid rgba(0, 245, 255, 0.2)',
               color: '#00f5ff',
-              fontSize: 'clamp(0.65rem, 2vw, 0.8rem)',
-              fontWeight: 600,
+              fontSize: '0.7rem',
+              fontWeight: 700,
               textTransform: 'uppercase',
-              letterSpacing: '0.3em',
-              marginBottom: '3rem',
+              letterSpacing: '0.4em',
+              marginBottom: '4rem',
               fontFamily: 'monospace',
-              boxShadow: '0 0 20px rgba(0, 245, 255, 0.1)',
-              position: 'relative'
+              borderRadius: '2px'
             }}
           >
-            <div style={{ position: 'absolute', top: '-1.5rem', left: 0, fontSize: '0.5rem', color: '#00f5ff', opacity: 0.5 }} className="mono">
-               AI_ASSISTANT: JARVIS_v4.2.1
-            </div>
-            <Activity size={14} className="animate-pulse" /> PROTOCOL_INITIATED
+            <Sparkles size={12} className="animate-pulse" /> SYSTEM_OVERVIEW_INIT
           </motion.div>
 
+          {/* Main Title */}
           <h1 style={{
             fontSize: 'clamp(2.5rem, 10vw, 7.5rem)',
             lineHeight: 0.9,
-            marginBottom: '2rem',
+            marginBottom: '2.5rem',
             fontWeight: 900,
-            letterSpacing: '-0.05em',
-            color: '#fff'
+            letterSpacing: '-0.04em',
+            color: '#fff',
+            maxWidth: '1200px'
           }}>
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
-               Engineering <br />
-               <span className="text-glow" style={{ color: '#00f5ff' }}>Authentic</span> Future
+              Engineering <br />
+              <span className="text-glow" style={{ color: '#00f5ff' }}>Authentic</span> Future
             </motion.span>
           </h1>
 
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontSize: 'clamp(0.9rem, 2.5vw, 1.15rem)',
-              color: '#a1a1aa',
-              marginBottom: '3.5rem',
-              maxWidth: '650px',
-              marginInline: 'auto',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1.3rem)',
+              color: 'rgba(255, 255, 255, 0.6)',
+              marginBottom: '4rem',
+              maxWidth: '700px',
               lineHeight: 1.6,
               fontWeight: 400
             }}
           >
-            Architecting high-stakes digital environments where performance meets precision. 
+            Architecting high-stakes digital environments where performance meets precision.
             Translating complex requirements into elegant, scalable solutions.
           </motion.p>
 
-          <div style={{ marginBottom: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-             <motion.div 
-                animate={{ opacity: [0.2, 0.6, 0.2] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="mono" 
-                style={{ fontSize: '0.6rem', color: '#00f5ff' }}
-             >
-                SCANNING_ENVIRONMENT... [OK]
-             </motion.div>
-             <div style={{ width: '40px', height: '1px', background: 'rgba(0, 245, 255, 0.2)' }} />
-             <div className="mono" style={{ fontSize: '0.6rem', color: '#00f5ff', opacity: 0.4 }}>
-                THREAT_LEVEL: ZERO
-             </div>
-          </div>
-
-          <div className="hero-btn-container" style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', width: '100%', maxWidth: '550px', marginInline: 'auto' }}>
-
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} style={{ flex: 1, minWidth: '240px' }}>
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="hero-btn-container"
+            style={{ display: 'flex', gap: '2rem', justifyContent: 'center', width: '100%', maxWidth: '600px' }}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ flex: 1 }}>
               <Link to="/projects" style={{
-                padding: '1rem 2rem',
+                height: '64px',
+                padding: '0 2.5rem',
                 background: '#00f5ff',
+                border: '1px solid #00f5ff',
                 color: '#000',
-                borderRadius: '4px',
-                fontWeight: 800,
+                borderRadius: '2px',
+                fontWeight: 900,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.8rem',
-                fontSize: '0.9rem',
+                gap: '1rem',
+                fontSize: '1rem',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
-                boxShadow: '0 0 30px rgba(0, 245, 255, 0.3)',
-                width: '100%',
-                height: '60px'
+                boxShadow: '0 0 40px rgba(0, 245, 255, 0.3)',
+                width: '100%'
               }}>
-                Access Work <Cpu size={20} />
+                Access Work <ArrowRight size={20} />
               </Link>
             </motion.div>
-            
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} style={{ flex: 1, minWidth: '240px' }}>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ flex: 1 }}>
               <a href="#contact" style={{
-                padding: '1rem 2rem',
+                height: '64px',
+                padding: '0 2.5rem',
                 border: '1px solid rgba(0, 245, 255, 0.3)',
                 background: 'rgba(0, 245, 255, 0.05)',
                 color: '#00f5ff',
-                borderRadius: '4px',
-                fontWeight: 800,
+                borderRadius: '2px',
+                fontWeight: 900,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.8rem',
-                fontSize: '0.9rem',
+                gap: '1rem',
+                fontSize: '1rem',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
                 width: '100%',
-                height: '60px'
+                backdropFilter: 'blur(10px)'
               }}>
                 Secure Connection <ShieldCheck size={20} />
               </a>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
 
-      <style>{`
-        .desktop-only { @media (max-width: 1024px) { display: none !important; } }
-        @media (max-width: 640px) {
-          .hero-btn-container { flex-direction: column !important; }
-        }
-        .text-gradient { background: linear-gradient(135deg, #fff 30%, #00f5ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-      `}</style>
-    </section>
+        {/* Decorative Corner Borders */}
+        <div style={{ position: 'absolute', top: '2rem', left: '2rem', width: '60px', height: '60px', borderTop: '2px solid #00f5ff', borderLeft: '2px solid #00f5ff', opacity: 0.3 }} />
+        <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '60px', height: '60px', borderBottom: '2px solid #00f5ff', borderRight: '2px solid #00f5ff', opacity: 0.3 }} />
+
+        <style>{`
+          .desktop-only { @media (max-width: 1024px) { display: none !important; } }
+          @media (max-width: 640px) {
+            .hero-btn-container { flex-direction: column !important; gap: 1rem !important; }
+          }
+          .text-glow { text-shadow: 0 0 20px rgba(0, 245, 255, 0.4); }
+        `}</style>
+      </motion.section>
+    </>
   );
 };
 

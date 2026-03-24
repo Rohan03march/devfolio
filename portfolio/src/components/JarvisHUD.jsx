@@ -26,14 +26,14 @@ const JarvisHUD = () => {
       <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '40px', height: '40px', borderRight: '2px solid #00f5ff', borderBottom: '2px solid #00f5ff', opacity: 0.4 }} />
 
       {/* Main Technical Header */}
-      <div style={{ 
-        position: 'absolute', 
-        top: '1.5rem', 
-        left: '50%', 
-        transform: 'translateX(-50%)', 
-        display: 'flex', 
+      <div style={{
+        position: 'absolute',
+        top: '1.5rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', 
+        alignItems: 'center',
         gap: '0.5rem',
         padding: '1rem 3rem',
         background: 'linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.05), transparent)',
@@ -47,25 +47,25 @@ const JarvisHUD = () => {
             T[{timestamp}]
           </div>
         </div>
-        
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', opacity: 0.6 }}>
-           <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>CORE_LOAD[{metrics.core.toFixed(1)}%]</span>
-           <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>TEMP[{metrics.temp.toFixed(1)}°C]</span>
-           <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>UPTIME[02:14:55]</span>
+          <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>CORE_LOAD[{metrics.core.toFixed(1)}%]</span>
+          <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>TEMP[{metrics.temp.toFixed(1)}°C]</span>
+          <span className="mono" style={{ fontSize: '0.55rem', color: '#00f5ff' }}>UPTIME[02:14:55]</span>
         </div>
       </div>
 
       {/* Scanning Background Grid (Subtle) */}
-      <div style={{ 
-        position: 'absolute', 
-        inset: 0, 
+      <div style={{
+        position: 'absolute',
+        inset: 0,
         background: 'radial-gradient(circle at 50% 50%, rgba(0, 245, 255, 0.02) 0%, transparent 70%)',
         pointerEvents: 'none'
       }} />
 
-      <div style={{ 
-        position: 'absolute', 
-        inset: 0, 
+      <div style={{
+        position: 'absolute',
+        inset: 0,
         background: 'linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px)',
         backgroundSize: '100px 100px',
         opacity: 0.1,

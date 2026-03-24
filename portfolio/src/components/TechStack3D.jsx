@@ -15,9 +15,9 @@ const technologies = Object.entries(techLogos).map(([path, module]) => ({
 
 function MouseSphere() {
   const { viewport, mouse } = useThree();
-  const [ref, api] = useSphere(() => ({ 
-    type: 'Kinematic', 
-    args: [3], 
+  const [ref, api] = useSphere(() => ({
+    type: 'Kinematic',
+    args: [3],
     position: [0, 0, -100] // Initial position far behind the scene
   }));
 
@@ -43,7 +43,7 @@ function MouseSphere() {
 function TechNode({ position, tech, i }) {
   const { viewport } = useThree();
   const texture = useLoader(THREE.TextureLoader, tech.image);
-  
+
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(1, 1);
 
@@ -81,7 +81,7 @@ function TechNode({ position, tech, i }) {
     }
 
     const [px, py, pz] = pos.current;
-    
+
     // Teleport back if too far
     if (Math.abs(px) > 60 || Math.abs(py) > 60 || Math.abs(pz) > 60) {
       api.position.set(0, 0, 0);
@@ -90,11 +90,11 @@ function TechNode({ position, tech, i }) {
 
     // Atom Physics: Strong attraction to [0,0,0] + High Damping
     const dist = Math.sqrt(px * px + py * py + pz * pz);
-    
+
     // Smooth magnetic-like attraction to center
     // The further away, the stronger the pull
-    const strength = hovered ? 5 : 25; 
-    
+    const strength = hovered ? 5 : 25;
+
     api.applyForce([
       -px * strength,
       -py * strength,
@@ -107,7 +107,7 @@ function TechNode({ position, tech, i }) {
       {/* SOLID BALL WITH TEXTURE */}
       <mesh>
         <sphereGeometry args={[nodeSize, 32, 32]} />
-        <meshStandardMaterial 
+        <meshStandardMaterial
           map={texture}
           metalness={0.7}
           roughness={0.3}
@@ -149,42 +149,42 @@ function Borders() {
 }
 
 const AssessingLoader = () => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    style={{ 
-      position: 'absolute', 
-      inset: 0, 
-      display: 'flex', 
-      flexDirection: 'column', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
+    style={{
+      position: 'absolute',
+      inset: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
       background: 'var(--primary-color)',
       zIndex: 20
     }}
   >
     <div style={{ position: 'relative', width: '200px', height: '200px', marginBottom: '2rem' }}>
-       <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          style={{ position: 'absolute', inset: 0, border: '2px dashed rgba(0, 245, 255, 0.3)', borderRadius: '50%' }} 
-       />
-       <motion.div 
-          animate={{ rotate: -360 }}
-          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-          style={{ position: 'absolute', inset: '20px', border: '1px solid rgba(0, 245, 255, 0.1)', borderRadius: '50%', borderTopColor: '#00f5ff' }} 
-       />
-       <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Activity size={40} style={{ color: '#00f5ff' }} className="animate-pulse" />
-       </div>
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        style={{ position: 'absolute', inset: 0, border: '2px dashed rgba(0, 245, 255, 0.3)', borderRadius: '50%' }}
+      />
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        style={{ position: 'absolute', inset: '20px', border: '1px solid rgba(0, 245, 255, 0.1)', borderRadius: '50%', borderTopColor: '#00f5ff' }}
+      />
+      <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Activity size={40} style={{ color: '#00f5ff' }} className="animate-pulse" />
+      </div>
     </div>
     <div className="mono" style={{ color: '#00f5ff', fontSize: '0.8rem', letterSpacing: '0.5em', textAlign: 'center' }}>
-       <motion.span
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-       >
-          ASSESSING_CORE_MATRIX...
-       </motion.span>
+      <motion.span
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+      >
+        ASSESSING_CORE_MATRIX...
+      </motion.span>
     </div>
   </motion.div>
 );
@@ -193,15 +193,15 @@ const TechStack3D = () => {
   const [isAssessing, setIsAssessing] = useState(false); // Disable loader by default for instant feedback
 
   return (
-    <section id="tech" className="section" style={{ 
-      minHeight: '100vh', 
-      position: 'relative', 
-      padding: 0, 
-      overflow: 'hidden', 
-      width: '100%', 
-      background: 'var(--primary-color)' 
+    <section id="tech" className="section" style={{
+      minHeight: '100vh',
+      position: 'relative',
+      padding: 0,
+      overflow: 'hidden',
+      width: '100%',
+      background: 'var(--primary-color)'
     }}>
-    <AnimatePresence>
+      <AnimatePresence>
         {isAssessing && <AssessingLoader />}
       </AnimatePresence>
 
@@ -218,7 +218,7 @@ const TechStack3D = () => {
       </div>
 
       <div style={{ width: '100%', height: '100vh', overflow: 'hidden', touchAction: 'none', position: 'relative' }}>
-<Canvas camera={{ position: [0, 0, 30], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true }}>
+        <Canvas camera={{ position: [0, 0, 30], fov: 45 }} dpr={[1, 2]} gl={{ antialias: true }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[0, 0, 15]} intensity={150} color="#00f5ff" />
           <pointLight position={[0, 0, -15]} intensity={50} color="#fff" />

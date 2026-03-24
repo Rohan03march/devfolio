@@ -30,25 +30,64 @@ body {
 
 /* Animations */
 @keyframes hologram-flicker {
-  0% { opacity: 0.95; }
-  5% { opacity: 0.8; }
-  10% { opacity: 0.95; }
-  15% { opacity: 0.9; }
-  25% { opacity: 0.95; }
-  30% { opacity: 0.7; }
-  35% { opacity: 0.95; }
-  100% { opacity: 0.95; }
+  0% {
+    opacity: 0.95;
+  }
+
+  5% {
+    opacity: 0.8;
+  }
+
+  10% {
+    opacity: 0.95;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  25% {
+    opacity: 0.95;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+
+  35% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0.95;
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(1000%);
+  }
 }
 
 @keyframes scan-pulse {
-  0% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.02); }
-  100% { opacity: 0.2; transform: scale(1); }
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
 }
 
 /* Ironman Tech HUD Utilities */
@@ -79,12 +118,14 @@ body {
 }
 
 .technical-border::before {
-  top: -1px; left: -1px;
+  top: -1px;
+  left: -1px;
   border-width: 2px 0 0 2px;
 }
 
 .technical-border::after {
-  bottom: -1px; right: -1px;
+  bottom: -1px;
+  right: -1px;
   border-width: 0 2px 2px 0;
 }
 
@@ -145,14 +186,19 @@ body {
 }
 
 @media (max-width: 768px) {
-  .container { 
-    padding-left: 1.5rem !important; 
-    padding-right: 1.5rem !important; 
+  .container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
-  .section { 
-    padding-top: 4rem; 
-    padding-bottom: 4rem; 
-    width: 100%; 
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 100%;
   }
-  .grid-responsive { grid-template-columns: 1fr; gap: 2rem; }
+
+  .grid-responsive {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
