@@ -236,7 +236,7 @@ const Navigation = () => {
                 <NavLink key={item.name} item={item} mobile />
               ))}
               <Link
-                to="/#contact"
+                to="/freelance"
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   marginTop: '1.5rem', /* Reduced margin */
@@ -252,7 +252,7 @@ const Navigation = () => {
                   letterSpacing: '0.1em'
                 }}
               >
-                <Activity size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Initi_Collaborate
+                <Activity size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Freelance
               </Link>
             </div>
           </motion.div>
