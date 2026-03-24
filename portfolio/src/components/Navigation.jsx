@@ -7,7 +7,8 @@ const navItems = [
   { name: 'Home', href: '/', isExternal: false },
   { name: 'About', href: '/#about', isExternal: false },
   { name: 'Services', href: '/#services', isExternal: false },
-  { name: 'Projects', href: '/projects', isExternal: true },
+  { name: 'Projects', href: '/projects', isExternal: false },
+  { name: 'Freelance', href: '/freelance', isExternal: false },
   { name: 'Experience', href: '/#experience', isExternal: false },
   { name: 'Contact', href: '/#contact', isExternal: false },
 ];
@@ -146,10 +147,10 @@ const Navigation = () => {
 
           {/* Desktop Nav */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} className="desktop-only">
-            {navItems.map((item) => (
+            {navItems.filter(item => item.name !== 'Freelance').map((item) => (
               <NavLink key={item.name} item={item} />
             ))}
-            <Link to="/#contact" style={{
+            <Link to="/freelance" style={{
               padding: '0.6rem 1.4rem',
               borderRadius: '2px',
               background: 'rgba(0, 245, 255, 0.1)',
@@ -167,17 +168,17 @@ const Navigation = () => {
               alignItems: 'center',
               gap: '0.5rem',
               boxShadow: '0 0 15px rgba(0, 245, 255, 0.1)'
-            }} 
-            className="hover:bg-cyan-500/20 hover:border-cyan-400"
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(0, 245, 255, 0.2)';
-              e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 245, 255, 0.3)';
             }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(0, 245, 255, 0.1)';
-              e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 245, 255, 0.1)';
-            }}>
-              <Zap size={14} /> Hire_Me
+              className="hover:bg-cyan-500/20 hover:border-cyan-400"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 245, 255, 0.2)';
+                e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 245, 255, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 245, 255, 0.1)';
+                e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 245, 255, 0.1)';
+              }}>
+              <Zap size={14} /> Freelance
             </Link>
           </div>
 
@@ -221,39 +222,39 @@ const Navigation = () => {
             }}
           >
 
-             <div className="hologram-card" style={{
-                width: '100%',
-                maxWidth: '400px',
-                padding: '2rem 1.5rem', /* Reduced padding */
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.8rem', /* Reduced gap */
-                textAlign: 'center',
-                border: '1px solid rgba(0, 245, 255, 0.2)'
-             }}>
-                {navItems.map((item) => (
-                    <NavLink key={item.name} item={item} mobile />
-                ))}
-                <Link
-                    to="/#contact"
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{
-                    marginTop: '1.5rem', /* Reduced margin */
-                    padding: '1rem', /* Reduced padding */
-                    borderRadius: '4px',
-                    background: '#00f5ff',
-                    color: '#000',
-                    fontWeight: 800,
-                    fontSize: '1rem',
-                    textDecoration: 'none',
-                    fontFamily: 'var(--font-mono)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em'
-                    }}
-                >
-                    <Activity size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Initi_Collaborate
-                </Link>
-             </div>
+            <div className="hologram-card" style={{
+              width: '100%',
+              maxWidth: '400px',
+              padding: '2rem 1.5rem', /* Reduced padding */
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.8rem', /* Reduced gap */
+              textAlign: 'center',
+              border: '1px solid rgba(0, 245, 255, 0.2)'
+            }}>
+              {navItems.map((item) => (
+                <NavLink key={item.name} item={item} mobile />
+              ))}
+              <Link
+                to="/#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  marginTop: '1.5rem', /* Reduced margin */
+                  padding: '1rem', /* Reduced padding */
+                  borderRadius: '4px',
+                  background: '#00f5ff',
+                  color: '#000',
+                  fontWeight: 800,
+                  fontSize: '1rem',
+                  textDecoration: 'none',
+                  fontFamily: 'var(--font-mono)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                <Activity size={18} style={{ display: 'inline', marginRight: '0.5rem' }} /> Initi_Collaborate
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

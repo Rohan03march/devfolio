@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor';
 import JarvisHUD from './components/JarvisHUD';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
+import FreelancePage from './pages/FreelancePage';
 import './App.css';
 
 // Component to handle scroll restoration on route change when using Lenis/Router
@@ -61,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/freelance" element={<FreelancePage />} />
         </Routes>
 
         <footer style={{
