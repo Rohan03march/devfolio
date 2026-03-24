@@ -39,7 +39,7 @@ const pricingData = {
     },
     {
       name: "Professional Web",
-      range: "₹80,000 – ₹1,50,000",
+      range: "₹80,000 – ₹1,40,000",
       duration: "3–5 weeks",
       description: "Scalable web applications with complex logic and database integrations.",
       features: [
@@ -57,7 +57,7 @@ const pricingData = {
     },
     {
       name: "Advanced SaaS",
-      range: "₹1,50,000 – ₹3,00,000",
+      range: "₹1,40,000 – ₹2,80,000",
       duration: "6–10 weeks",
       description: "Enterprise-grade SaaS platforms built for high-scale performance.",
       features: [
@@ -76,7 +76,7 @@ const pricingData = {
   mobile: [
     {
       name: "Basic App",
-      range: "₹70,000 – ₹1,20,000",
+      range: "₹60,000 – ₹1,10,000",
       duration: "2–4 weeks",
       description: "User-friendly mobile applications focused on core utility and performance.",
       features: [
@@ -93,7 +93,7 @@ const pricingData = {
     },
     {
       name: "Pro Mobile App",
-      range: "₹1,20,000 – ₹2,50,000",
+      range: "₹1,10,000 – ₹2,20,000",
       duration: "5–8 weeks",
       description: "High-performance apps with complex offline capabilities and custom logic.",
       features: [
@@ -111,7 +111,7 @@ const pricingData = {
     },
     {
       name: "Advanced Mobile",
-      range: "₹2,50,000 – ₹4,00,000",
+      range: "₹2,20,000 – ₹3,80,000",
       duration: "8–12 weeks",
       description: "Large-scale mobile ecosystems with proprietary features and high security.",
       features: [
@@ -130,7 +130,7 @@ const pricingData = {
   hybrid: [
     {
       name: "Full Ecosystem",
-      range: "₹3,00,000 – ₹5,00,000",
+      range: "₹2,80,000 – ₹4,80,000",
       duration: "10–16 weeks",
       description: "Complete digital ecosystem including Web Platform + Mobile Application.",
       features: [
@@ -148,7 +148,7 @@ const pricingData = {
     },
     {
       name: "Enterprise Solutions",
-      range: "₹5,00,000+",
+      range: "₹4,80,000+",
       duration: "Long-term",
       description: "Custom high-scale systems built for companies and full product cycles.",
       features: [
