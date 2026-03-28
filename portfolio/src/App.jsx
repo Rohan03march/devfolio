@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
+import { useMotionValue } from 'framer-motion';
 import Navigation from './components/Navigation';
 import CustomCursor from './components/CustomCursor';
 import JarvisHUD from './components/JarvisHUD';
@@ -29,25 +30,40 @@ const NavigationWrapper = () => {
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Silky-smooth: longer duration + expo-out easing feels cinematic
+      duration: 1.6,
+      easing: (t) => 1 - Math.pow(1 - t, 4), // quartic ease-out
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.9,   // slightly reduced so it never feels rushed
       smoothTouch: false,
-      touchMultiplier: 2,
+      touchMultiplier: 1.8,
+      infinite: false,
     });
 
+    // Expose lenis instance globally so Hero/other components can subscribe
+    window.__lenis = lenis;
+
+    // Sync Lenis scroll value with native window.scrollY so Framer Motion's
+    // useScroll() stays frame-perfect (no jitter between smooth & native pos)
+    lenis.on('scroll', ({ scroll }) => {
+      // Framer Motion reads document.documentElement.scrollTop internally;
+      // Lenis already updates it, this event is our hook for any extras.
+      window.dispatchEvent(new Event('scroll'));
+    });
+
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
+      window.__lenis = null;
     };
   }, []);
 
