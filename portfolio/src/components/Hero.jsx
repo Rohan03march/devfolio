@@ -814,7 +814,7 @@ const Hero = () => {
                 letterSpacing: '0.15em', width: '100%', backdropFilter: 'blur(10px)',
                 boxShadow: '0 0 20px rgba(0,245,255,0.1)',
               }}>
-                <ShieldCheck size={16} /> Secure Link
+                <ShieldCheck size={16} /> Contact Me
               </a>
             </motion.div>
           </motion.div>
