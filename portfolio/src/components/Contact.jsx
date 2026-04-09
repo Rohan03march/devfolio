@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter, Send, MapPin, ArrowUpRight, Activity, Shield, Wifi, Globe, FileText, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import resumeFile from "../assets/Rohan's Resume.pdf";
+import resumeFile from "../assets/Rohan Resume.pdf";
 
 const Contact = () => {
   const formRef = useRef();
