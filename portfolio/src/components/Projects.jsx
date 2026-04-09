@@ -15,6 +15,7 @@ import sourceoneImg from '../assets/projectsImages/sourceone.png';
 import amsImg from '../assets/projectsImages/ams.png';
 import appStoreIcon from '../assets/appstore.png';
 import playStoreIcon from '../assets/playstore.png';
+import hypernowImg from '../assets/projectsImages/hypernow.png';
 
 const projects = [
   {
@@ -122,6 +123,17 @@ const projects = [
     stability: '99.9%',
     github: 'https://github.com/Rohan03march/AMS',
     live: 'https://assethub-one.vercel.app'
+  },
+  {
+    title: 'HyperNow - Logistics',
+    description:
+      'Built a responsive company website for a Hypernow logistics and quick commerce platform, showcasing services, business solutions, and user-focused design.',
+    tech: ['REACT', 'TAILWIND CSS', 'Email.js'],
+    image: hypernowImg,
+    id: 'BP-24',
+    stability: '99.9%',
+    github: 'https://github.com/Rohan03march/Hypernow',
+    live: 'https://hypernow.co.in'
   },
 ];
 
