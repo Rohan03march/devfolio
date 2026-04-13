@@ -22,8 +22,8 @@ const pricingData = {
   web: [
     {
       name: "Starter Web",
-      range: "₹50,000 – ₹80,000",
-      duration: "1–2 weeks",
+      range: "₹25,000 – ₹45,000",
+      duration: "0.5 – 1 Month",
       description: "Ideal for professional landing pages and conversion-focused business sites.",
       features: [
         "Responsive SEO-Optimized Website",
@@ -35,12 +35,15 @@ const pricingData = {
         "Post-delivery Support"
       ],
       samples: ["Portfolio Sites", "Landing Pages", "Business Info Sites", "Simple Blogs"],
+      monthlyBreakdown: [
+        { month: "Phase 1", focus: "Design, Frontend & Hosting" }
+      ],
       icon: <Globe size={24} />
     },
     {
       name: "Professional Web",
-      range: "₹80,000 – ₹1,40,000",
-      duration: "3–5 weeks",
+      range: "₹50,000 – ₹85,000",
+      duration: "1 – 2 Months",
       description: "Scalable web applications with complex logic and database integrations.",
       features: [
         "Advanced Management Dashboards",
@@ -52,13 +55,17 @@ const pricingData = {
         "API Third-party Integrations"
       ],
       samples: ["Rental Portals", "Inventory Systems", "Booking Platforms", "E-commerce Stores"],
+      monthlyBreakdown: [
+        { month: "Month 1", focus: "Core Architecture & Backend" },
+        { month: "Month 2", focus: "Frontend, API & Beta Testing" }
+      ],
       popular: true,
       icon: <Layers size={24} />
     },
     {
       name: "Advanced SaaS",
-      range: "₹1,40,000 – ₹2,80,000",
-      duration: "6–10 weeks",
+      range: "₹90,000 – ₹1,50,000",
+      duration: "3 – 4 Months",
       description: "Enterprise-grade SaaS platforms built for high-scale performance.",
       features: [
         "Full-stack Multi-tenant SaaS",
@@ -70,14 +77,19 @@ const pricingData = {
         "Technical Documentation"
       ],
       samples: ["SaaS Product Platforms", "Complex CRM Systems", "Social Media Engines", "Financial Tools"],
+      monthlyBreakdown: [
+        { month: "Month 1", focus: "Discovery & Infrastructure" },
+        { month: "Month 2", focus: "Module Development & API" },
+        { month: "Month 3+", focus: "Scale Tuning & Deployment" }
+      ],
       icon: <Cpu size={24} />
     }
   ],
   mobile: [
     {
       name: "Basic App",
-      range: "₹60,000 – ₹1,10,000",
-      duration: "2–4 weeks",
+      range: "₹35,000 – ₹60,000",
+      duration: "1 Month",
       description: "User-friendly mobile applications focused on core utility and performance.",
       features: [
         "iOS & Android (Cross-platform)",
@@ -89,12 +101,15 @@ const pricingData = {
         "Basic Cache Optimization"
       ],
       samples: ["Utility Apps", "Educational Apps", "Lifestyle Trackers", "Basic Social Apps"],
+      monthlyBreakdown: [
+        { month: "Month 1", focus: "UI/UX & Core Functionality" }
+      ],
       icon: <Smartphone size={24} />
     },
     {
       name: "Pro Mobile App",
-      range: "₹1,10,000 – ₹2,20,000",
-      duration: "5–8 weeks",
+      range: "₹70,000 – ₹1,20,000",
+      duration: "2 Months",
       description: "High-performance apps with complex offline capabilities and custom logic.",
       features: [
         "Native Device API Integration",
@@ -106,13 +121,17 @@ const pricingData = {
         "Advanced Performance Tuning"
       ],
       samples: ["Delivery Apps", "Fintech Solutions", "Service Marketplaces", "Healthcare Apps"],
+      monthlyBreakdown: [
+        { month: "Month 1", focus: "Feature Set A & API Sync" },
+        { month: "Month 2", focus: "Feature Set B & UI Polish" }
+      ],
       popular: true,
       icon: <Smartphone size={24} />
     },
     {
       name: "Advanced Mobile",
-      range: "₹2,20,000 – ₹3,80,000",
-      duration: "8–12 weeks",
+      range: "₹1,30,000 – ₹2,20,000",
+      duration: "4 Months",
       description: "Large-scale mobile ecosystems with proprietary features and high security.",
       features: [
         "High-Security Data Encryption",
@@ -124,14 +143,18 @@ const pricingData = {
         "Long-term Strategy Planning"
       ],
       samples: ["Enterprise Mobile Tools", "Complex Social Platforms", "Streaming Apps", "B2B Ecosystems"],
+      monthlyBreakdown: [
+        { month: "Month 1-2", focus: "Native APIs & Core Logic" },
+        { month: "Month 3-4", focus: "Encryption & Enterprise Sync" }
+      ],
       icon: <Cpu size={24} />
     }
   ],
   hybrid: [
     {
       name: "Full Ecosystem",
-      range: "₹2,80,000 – ₹4,80,000",
-      duration: "10–16 weeks",
+      range: "₹1,50,000 – ₹2,80,000",
+      duration: "6 Months",
       description: "Complete digital ecosystem including Web Platform + Mobile Application.",
       features: [
         "Unified Centralized Backend",
@@ -143,13 +166,17 @@ const pricingData = {
         "Performance Monitoring Tools"
       ],
       samples: ["Full Startup Product Launch", "Managed Business Ecosystems", "Sync-heavy Platforms"],
+      monthlyBreakdown: [
+        { month: "Month 1-3", focus: "Unified Backend & Web" },
+        { month: "Month 4-6", focus: "Mobile Apps & Ecosystem Sync" }
+      ],
       popular: true,
       icon: <Box size={24} />
     },
     {
       name: "Enterprise Solutions",
-      range: "₹4,80,000+",
-      duration: "Long-term",
+      range: "₹3,50,000+",
+      duration: "Flexible (Monthly)",
       description: "Custom high-scale systems built for companies and full product cycles.",
       features: [
         "Scalable Microservices",
@@ -161,6 +188,9 @@ const pricingData = {
         "Consultancy & Growth Roadmap"
       ],
       samples: ["Total Digital Transformation", "High-scale SaaS Infrastructure", "AI-driven Ecosystems"],
+      monthlyBreakdown: [
+        { month: "Monthly", focus: "Dedicated Support & Roadmap" }
+      ],
       icon: <Terminal size={24} />
     }
   ]
@@ -320,7 +350,7 @@ const FreelancePage = () => {
 
                 <div style={{ marginBottom: '1.5rem' }}>
                   <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#00f5ff' }}>
-                    {plan.range}
+                    {plan.range} <span style={{ fontSize: '0.9rem', opacity: 0.6 }}>/ Month</span>
                   </div>
                   <div className="mono" style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.4)', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                     <Clock size={12} /> {plan.duration}
@@ -345,6 +375,24 @@ const FreelancePage = () => {
                   </ul>
 
                   <div className="mono" style={{ fontSize: '0.65rem', color: 'rgba(255, 255, 255, 0.4)', marginBottom: '1rem' }}>
+                    // MONTHLY_BREAKDOWN
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    {plan.monthlyBreakdown.map((item, i) => (
+                      <div key={i} style={{
+                        fontSize: '0.75rem',
+                        padding: '0.8rem',
+                        background: 'rgba(0, 245, 255, 0.03)',
+                        border: '1px solid rgba(0, 245, 255, 0.1)',
+                        borderRadius: '4px'
+                      }}>
+                        <span style={{ color: '#00f5ff', fontWeight: 800, display: 'block', marginBottom: '0.2rem' }}>{item.month}:</span>
+                        <span style={{ color: 'rgba(255, 255, 255, 0.6)' }}>{item.focus}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mono" style={{ fontSize: '0.65rem', color: 'rgba(255, 255, 255, 0.4)', marginTop: '2rem', marginBottom: '1rem' }}>
                     // SAMPLE_PROJECTS
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -400,9 +448,10 @@ const FreelancePage = () => {
               <h3 className="mono" style={{ margin: 0 }}>Payment_Architecture</h3>
             </div>
             <p style={{ color: 'rgba(255, 255, 255, 0.6)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              Typically, the payment structure is <span style={{ color: '#00f5ff', fontWeight: 700 }}>50% advance</span> to begin development and the remaining amount before final delivery.
-              Any additional features requested beyond the agreed scope will be quoted separately.
-              Support and maintenance after delivery is provided based on the specific project tier.
+              Our billing operates on a <span style={{ color: '#00f5ff', fontWeight: 700 }}>Monthly Subscription Model</span>. 
+              Payments are processed at the start of each development cycle (Month). 
+              This ensures continuous progress, transparent resource allocation, and flexibility to adjust scope month-to-month.
+              Maintenance and support are integrated into the monthly cycle for applicable tiers.
             </p>
           </motion.div>
         </div>
