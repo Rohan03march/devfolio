@@ -310,9 +310,9 @@ const FreelancePage = () => {
             <p style={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.9rem' }}>A simple, transparent path from idea to launch.</p>
           </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '1.5rem',
             position: 'relative'
           }}>
@@ -407,8 +407,8 @@ const FreelancePage = () => {
                 key={plan.name}
                 onClick={() => setSelectedPlan(plan)}
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: 0,
                   scale: selectedPlan.name === plan.name ? 1.02 : 1,
                   borderColor: selectedPlan.name === plan.name ? '#00f5ff' : plan.popular ? 'rgba(0, 245, 255, 0.3)' : 'rgba(0, 245, 255, 0.1)'
@@ -547,7 +547,7 @@ const FreelancePage = () => {
               <HelpCircle size={24} />
               <h3 className="mono" style={{ margin: 0 }}>Model_Clarification_FAQ</h3>
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
                 <div className="mono" style={{ color: '#00f5ff', fontSize: '0.75rem', marginBottom: '0.4rem' }}>Q: Is this a monthly subscription?</div>
@@ -586,7 +586,7 @@ const FreelancePage = () => {
               <Activity size={24} />
               <h3 className="mono" style={{ margin: 0 }}>Milestone_Protocol</h3>
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
                 <div className="mono" style={{ color: '#00f5ff', fontSize: '0.75rem', marginBottom: '0.4rem' }}>Q: When do payments happen?</div>
@@ -638,11 +638,11 @@ const FreelancePage = () => {
             height: '100%',
             background: '#00f5ff'
           }} />
-          
+
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'start' }}>
-            <div style={{ 
-              background: 'rgba(0, 245, 255, 0.1)', 
-              padding: '0.8rem', 
+            <div style={{
+              background: 'rgba(0, 245, 255, 0.1)',
+              padding: '0.8rem',
               borderRadius: '8px',
               color: '#00f5ff'
             }}>
@@ -652,49 +652,24 @@ const FreelancePage = () => {
               <h4 className="mono" style={{ color: '#00f5ff', margin: '0 0 1rem 0', fontSize: '1.1rem', letterSpacing: '0.1em' }}>
                 // PROJECT_CLARIFICATION_PROTOCOL
               </h4>
-              <p style={{ 
-                color: 'rgba(255, 255, 255, 0.8)', 
-                lineHeight: 1.7, 
+              <p style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                lineHeight: 1.7,
                 fontSize: '1rem',
                 margin: 0,
                 maxWidth: '1000px'
               }}>
-                Please note that all listed pricing represents the <span style={{ color: '#00f5ff', fontWeight: 700 }}>Total Project Estimate</span> based on the initial scope. 
+                Please note that all listed pricing represents the <span style={{ color: '#00f5ff', fontWeight: 700 }}>Total Project Estimate</span> based on the initial scope.
                 Our engagements operate on a <span style={{ color: '#00f5ff', fontWeight: 700 }}>Fixed Project Price Model</span> — they are <span style={{ color: '#ff4d4d', fontWeight: 700, textDecoration: 'underline' }}>not monthly salaries or monthly rates</span>.
                 <br /><br />
-                The final project cost is <span style={{ color: '#fff' }}>milestone-based</span> and covers the entire development lifecycle, including design, building, testing, and deployment. 
-                The actual pricing will <span style={{ color: '#fff', fontWeight: 700 }}>vary accordingly based on the specific features</span>, technical complexity, and scale of the project. 
+                The final project cost is <span style={{ color: '#fff' }}>milestone-based</span> and covers the entire development lifecycle, including design, building, testing, and deployment.
+                The actual pricing will <span style={{ color: '#fff', fontWeight: 700 }}>vary accordingly based on the specific features</span>, technical complexity, and scale of the project.
                 <br /><br />
                 Just to clarify, any estimates provided are project-wide totals. If the project scope increases or if it transitions into a long-term engagement, the pricing structure will be revised to reflect the new requirements.
               </p>
             </div>
           </div>
         </motion.div>
-
-        {/* Final Call To Action */}
-        <div style={{ textAlign: 'center', marginTop: '6rem' }}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              padding: '1.5rem 4rem',
-              background: '#00f5ff',
-              color: '#000',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: 900,
-              cursor: 'pointer',
-              fontFamily: 'var(--font-mono)',
-              boxShadow: '0 0 50px rgba(0, 245, 255, 0.2)'
-            }}
-          >
-            READY TO START? GET A CUSTOM QUOTE
-          </motion.button>
-          <div className="mono" style={{ color: 'rgba(255, 255, 255, 0.3)', fontSize: '0.7rem', marginTop: '1.5rem' }}>
-             // DIRECT_COMM_LINK_ENCRYPTED
-          </div>
-        </div>
 
         {/* Info Alert */}
         <motion.div
